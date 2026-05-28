@@ -1,9 +1,12 @@
 console.log("Hello, World!");
 
-const person = {
-    name: "Lebron James",
-    age: 38,
-    occupation: "Basketball Player"
-};
+const persons = [
+  { name: "Lebron James", age: 38, occupation: "Basketball Player" },
+  { name: "Kevin James", age: 42, occupation: "Actor" },
+];
 
-console.log(`My name is ${person.name}, I am ${person.age} years old, and I work as a ${person.occupation}.`);
+for (const person of persons) {
+  console.log(
+    `My name is ${person.name}, I am ${person.age} years old, and I work as a ${person.occupation}.`,
+  );
+}
