@@ -1,0 +1,67 @@
+name: Evans user UI
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types:
+      - published
+
+jobs:
+  publish_api:
+    # env:
+    #   DOCKER_REPO: aims-cloud
+    #   DOCKER_TAG: user-ui
+    #   DOCKER_HUB_USER: "aimsadmin"
+    #   DOCKER_HUB_PASS: "18123124-3dcb-400b-a52e-298830ff2c35"
+    name: Publish Evans User UI
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: '5.x'
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+        with:
+          useConfigFile: true
+      # - name: Install Python 3.9
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: '3.9'
+      # - name: Build & Publish
+      #   run: |
+      #     cd web
+      #     export API_HOST="api.unreached.xyz"
+      #     export API_URL="https://${API_HOST}/graphql/"
+      #     export API_WS_URL="wss://${API_HOST}/graphql/"
+      #     export WEB_HOST="app.unreached.xyz"
+      #     export WEB_URL="https://${WEB_HOST}"
+      #     export PUBLIC_HOST="unreached.xyz"
+      #     export PUBLIC_URL="https://${PUBLIC_HOST}"
+      #     export ENVI="stage"
+      #     export TAG=${DOCKER_HUB_USER}/${DOCKER_REPO}:${DOCKER_TAG}-${{ steps.gitversion.outputs.fullSemVer }}.${ENVI}
+      #     docker build --build-arg public_url="$PUBLIC_URL" --build-arg api_url="$API_URL" --build-arg api_ws_url="$API_WS_URL" --build-arg web_url="$WEB_URL" --build-arg web_redirect="$WEB_REDIRECT" -t ${TAG} -f user-ui/Dockerfile .
+      #     docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
+      #     docker push ${TAG}
+      #     export API_HOST="api.aims.org"
+      #     export API_URL="https://${API_HOST}/graphql/"
+      #     export API_WS_URL="wss://${API_HOST}/graphql/"
+      #     export WEB_HOST="app.aims.org"
+      #     export WEB_URL="https://${WEB_HOST}"
+      #     export PUBLIC_HOST="aims.org"
+      #     export PUBLIC_URL="https://${PUBLIC_HOST}"
+      #     export PUSHPAY_GIVING_URL="https://pushpay.com/pay/aimscs"
+      #     export ENVI="prod"
+      #     export TAG=${DOCKER_HUB_USER}/${DOCKER_REPO}:${DOCKER_TAG}-${{ steps.gitversion.outputs.fullSemVer }}.${ENVI}
+      #     docker build --build-arg pushpay_giving_url="$PUSHPAY_GIVING_URL" --build-arg public_url="$PUBLIC_URL" --build-arg api_url="$API_URL" --build-arg api_ws_url="$API_WS_URL" --build-arg web_url="$WEB_URL" --build-arg web_redirect="$WEB_REDIRECT" -t ${TAG} -f user-ui/Dockerfile .
+      #     docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASS}
+      #     docker push ${TAG}
+
+          
