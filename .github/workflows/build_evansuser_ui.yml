@@ -16,21 +16,21 @@ jobs:
     #   DOCKER_HUB_USER: "aimsadmin"
     #   DOCKER_HUB_PASS: "18123124-3dcb-400b-a52e-298830ff2c35"
     name: Publish Evans User UI
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.7
         with:
           versionSpec: '5.x'
-      - name: Determine Version
-        id: gitversion
-        uses: gittools/actions/gitversion/execute@v0.9.7
-        with:
-          useConfigFile: true
+      # - name: Determine Version
+      #   id: gitversion
+      #   uses: gittools/actions/gitversion/execute@v0.9.7
+      #   with:
+      #     useConfigFile: true
       # - name: Install Python 3.9
       #   uses: actions/setup-python@v2
       #   with:
