@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basic Webpage with Form</title>
+  <title>Evan's Hello World</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background-color: #f7f7f7;
+      background-color: #ff8709;
     }
     .container {
       max-width: 500px;
       margin: 0 auto;
       padding: 20px;
-      background: #ffffff;
-      border: 1px solid #ddd;
+      background: #a2d0cf;
+      border: 1px solid #7896c3;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     h1 {
       margin-top: 0;
       font-size: 24px;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 18px;
       text-align: center;
     }
     label {
@@ -40,23 +45,23 @@
       box-sizing: border-box;
     }
     button {
-      background-color: #4CAF50;
-      color: white;
+      background-color: #1e3579;
+      color: #ec9d37;
       border: none;
       cursor: pointer;
       margin-top: 20px;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #223156;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>A website for Vercel</h1>
+    <h1>A website test for Vercel</h1>
     <h2>Input your information, please</h2>
-    <form>
+    <form id="form">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Your name" required>
 
@@ -64,7 +69,7 @@
       <input type="number" id="age" name="age" placeholder="Your age" required>
 
       <label for="occupation">occupation</label>
-      <input type="text" id="occupation" name="occupation" placeholder="Your occupation">
+      <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required>
 
       <label for="ssn">Social Security Number</label>
       <input type="text" id="ssn" name="ssn" placeholder="Your ssn">
