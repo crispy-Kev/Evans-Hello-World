@@ -1,12 +1,13 @@
 name: Publish Evans UI
 
 on:
-  push:
-    branches:
-      - main
-  release:
-    types:
-      - published
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  # release:
+  #   types:
+  #     - published
 
 permissions:
   contents: read
@@ -45,7 +46,7 @@ jobs:
       #   with:
       #     useConfigFile: true
       - name: Upload site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
       - name: Deploy
